@@ -9,3 +9,9 @@ RUN git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv && \
     echo 'export PATH="$HOME/.tfenv/bin:$PATH"' > /etc/profile.d/tfenv.sh && \
     $HOME/.tfenv/bin/tfenv install $TF_VERSION && \
     $HOME/.tfenv/bin/tfenv use $TF_VERSION
+
+# install awscli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf ./awscliv2.zip
